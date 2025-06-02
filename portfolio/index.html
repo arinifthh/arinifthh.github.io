@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nur Arini Fatihah | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode based on 'dark' class on HTML element
+            theme: {
+                extend: {
+                    // You can define custom colors here if needed, but for now, using existing Tailwind shades
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,6 +24,7 @@
         }
         body {
             font-family: 'Poppins', sans-serif; /* Using Poppins font */
+            /* Default light theme colors, overridden by dark: classes */
             background-color: #fffff0; /* Very light yellow, almost white */
             color: black; /* Main body text color set to black */
         }
@@ -43,6 +54,9 @@
             margin-top: 0.5rem; /* Space above the line */
             margin-bottom: 1.5rem; /* Space below the line for labels */
         }
+        .dark .skill-level-line {
+            background-color: #4b5563; /* Darker gray line for dark mode */
+        }
         .skill-indicator {
             position: absolute;
             width: 12px;
@@ -51,6 +65,9 @@
             border-radius: 9999px; /* Circular */
             top: 50%;
             transform: translate(-50%, -50%); /* Center the circle on the line */
+        }
+        .dark .skill-indicator {
+            background-color: #fbbf24; /* Lighter yellow for dark mode */
         }
         .skill-labels {
             position: absolute;
@@ -62,62 +79,68 @@
             top: 100%; /* Position below the line */
             margin-top: 0.25rem; /* Small margin from the line */
         }
+        .dark .skill-labels {
+            color: #9ca3af; /* Lighter gray for dark mode */
+        }
     </style>
 </head>
-<body class="antialiased">
-    <nav class="bg-yellow-50 p-4 sticky top-0 z-50 shadow-lg">
+<body class="antialiased bg-fffff0 text-black dark:bg-gray-900 dark:text-white">
+    <nav class="bg-yellow-50 p-4 sticky top-0 z-50 shadow-lg dark:bg-gray-700">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
-            <a href="#home" class="text-gray-900 text-2xl font-bold rounded-md hover:bg-yellow-100 px-3 py-2 transition-colors duration-200">Arini Fatihah</a>
-            <div class="flex-grow md:flex-grow-0 md:flex">
+            <a href="#home" class="text-gray-900 text-2xl font-bold rounded-md hover:bg-yellow-100 px-3 py-2 transition-colors duration-200 dark:text-white dark:hover:bg-gray-600">Arini Fatihah</a>
+            <div class="flex-grow md:flex-grow-0 md:flex items-center">
                 <ul class="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 w-full md:w-auto">
-                    <li><a href="#home" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200">Home</a></li>
-                    <li><a href="#projects" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200">Projects</a></li>
-                    <li><a href="#skills" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200">Skills</a></li>
-                    <li><a href="#certifications" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200">Certifications</a></li>
-                    <li><a href="#contact" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200">Contact</a></li>
+                    <li><a href="#home" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-600">Home</a></li>
+                    <li><a href="#projects" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-600">Projects</a></li>
+                    <li><a href="#skills" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-600">Skills</a></li>
+                    <li><a href="#certifications" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-600">Certifications</a></li>
+                    <li><a href="#contact" class="block py-2 px-3 text-gray-800 hover:text-black hover:bg-yellow-100 rounded-md transition-colors duration-200 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-600">Contact</a></li>
                 </ul>
+                <button id="themeToggle" class="ml-0 md:ml-8 mt-4 md:mt-0 p-2 rounded-md bg-yellow-100 text-gray-800 hover:bg-yellow-200 transition-colors duration-200 dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="flex flex-col md:flex-row items-center justify-center p-6 md:p-10 bg-yellow-50 text-gray-800 rounded-lg shadow-xl mx-auto my-8 max-w-4xl">
+    <section id="home" class="flex flex-col md:flex-row items-center justify-center p-6 md:p-10 bg-yellow-50 text-gray-800 rounded-lg shadow-xl mx-auto my-8 max-w-4xl dark:bg-gray-800 dark:text-gray-100">
         <div class="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
             <img
                 src="https://raw.githubusercontent.com/arinifthh/arinifthh.github.io/main/img/profile.png"
                 alt="Profile Picture"
-                class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-200 shadow-lg"
+                class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-200 shadow-lg dark:border-yellow-500"
                 onerror="this.onerror=null;this.src='https://placehold.co/150x150/cccccc/333333?text=Profile+Photo';"
             />
         </div>
 
         <div class="text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-2 leading-tight text-gray-900">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-2 leading-tight text-gray-900 dark:text-white">
                 Hi there 👋
             </h1>
-            <p class="text-lg md:text-xl text-gray-800 mb-4">
+            <p class="text-lg md:text-xl text-gray-800 mb-4 dark:text-gray-200">
                 I'm <strong>Nur Arini Fatihah</strong>, a <strong>Data Engineering student</strong> from <strong>UTM Johor Bahru</strong>.<br/>
                 Passionate about <strong>data analytics</strong> and turning data into meaningful insights.
             </p>
 
             <div class="flex justify-center md:justify-start space-x-4 mt-4">
-                <a href="https://github.com/arinifthh" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200">
+                <a href="https://github.com/arinifthh" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200 dark:text-gray-200 dark:hover:text-white">
                     <i class="fab fa-github text-3xl"></i>
                 </a>
-                <a href="https://linkedin.com/in/arini-fatihah" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200">
+                <a href="https://linkedin.com/in/arini-fatihah" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200 dark:text-gray-200 dark:hover:text-white">
                     <i class="fab fa-linkedin text-3xl"></i>
                 </a>
-                <a href="[LINK_TO_YOUR_RESUME.pdf]" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200">
+                <a href="[LINK_TO_YOUR_RESUME.pdf]" target="_blank" rel="noopener noreferrer" class="text-gray-800 hover:text-black transition-colors duration-200 dark:text-gray-200 dark:hover:text-white">
                     <i class="fas fa-file-alt text-3xl"></i> </a>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center">Skills</h2>
-        <ul class="list-none space-y-6 text-lg text-gray-800 px-4"> <li>
+    <section id="skills" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Skills</h2>
+        <ul class="list-none space-y-6 text-lg text-gray-800 px-4 dark:text-gray-200"> <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">Tableau</strong>
-                    <span class="text-gray-700">Level 7/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">Tableau</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 7/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(70% - 6px);"></div> <div class="skill-labels">
@@ -129,8 +152,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">Alteryx</strong>
-                    <span class="text-gray-700">Level 5/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">Alteryx</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 5/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(50% - 6px);"></div> <div class="skill-labels">
@@ -142,8 +165,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">Python</strong>
-                    <span class="text-gray-700">Level 8/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">Python</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 8/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(80% - 6px);"></div> <div class="skill-labels">
@@ -155,8 +178,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">MySQL</strong>
-                    <span class="text-gray-700">Level 6/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">MySQL</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 6/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(60% - 6px);"></div> <div class="skill-labels">
@@ -168,8 +191,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">SQL</strong>
-                    <span class="text-gray-700">Level 9/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">SQL</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 9/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(90% - 6px);"></div> <div class="skill-labels">
@@ -181,8 +204,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">R</strong>
-                    <span class="text-gray-700">Level 4/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">R</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
@@ -194,8 +217,8 @@
             </li>
             <li>
                 <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900">.NET MVC</strong>
-                    <span class="text-gray-700">Level 3/10</span>
+                    <strong class="text-gray-900 dark:text-gray-100">.NET MVC</strong>
+                    <span class="text-gray-700 dark:text-gray-300">Level 3/10</span>
                 </div>
                 <div class="skill-level-line">
                     <div class="skill-indicator" style="left: calc(30% - 6px);"></div> <div class="skill-labels">
@@ -208,57 +231,57 @@
         </ul>
     </section>
 
-    <section id="projects" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center">Featured Projects</h2>
+    <section id="projects" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Featured Projects</h2>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title 1</h3>
-            <p class="text-gray-800 mb-2"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2"><strong>Technologies:</strong> Python, Pandas, Matplotlib, SQL, Tableau</p>
-            <p class="text-gray-800 mb-4"><strong>Impact:</strong> Developed a dashboard that reduced reporting time by X%.</p>
+        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 1</h3>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Pandas, Matplotlib, SQL, Tableau</p>
+            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Developed a dashboard that reduced reporting time by X%.</p>
             <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project1-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200">View Project on GitHub</a>
-                <a href="https://public.tableau.com/profile/yourusername/project1-dashboard" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200">Live Dashboard</a>
+                <a href="https://github.com/yourusername/project1-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
+                <a href="https://public.tableau.com/profile/yourusername/project1-dashboard" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
             </p>
             <img src="https://placehold.co/800x450/e0e0e0/000000?text=Project+1+Screenshot" alt="Project 1 Screenshot" class="rounded-lg shadow-md">
         </div>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title 2</h3>
-            <p class="text-gray-800 mb-2"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn</p>
-            <p class="text-gray-800 mb-4"><strong>Impact:</strong> Achieved X% accuracy in a predictive model.</p>
+        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 2</h3>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn</p>
+            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Achieved X% accuracy in a predictive model.</p>
             <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project2-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200">View Project on GitHub</a>
+                <a href="https://github.com/yourusername/project2-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
             </p>
             <img src="https://placehold.co/800x450/d0d0d0/000000?text=Project+2+Screenshot" alt="Project 2 Screenshot" class="rounded-lg shadow-md">
         </div>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title 3</h3>
-            <p class="text-gray-800 mb-2"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2"><strong>Technologies:</strong> SQL, Power BI</p>
-            <p class="text-gray-800 mb-4"><strong>Impact:</strong> Automated business report generation.</p>
+        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 3</h3>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> SQL, Power BI</p>
+            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Automated business report generation.</p>
             <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project3-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200">View Project on GitHub</a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoi...link" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200">Live Dashboard</a>
+                <a href="https://github.com/yourusername/project3-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
+                <a href="https://app.powerbi.com/view?r=eyJrIjoi...link" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
             </p>
             <img src="https://placehold.co/800x450/c0c0c0/000000?text=Project+3+Screenshot" alt="Project 3 Screenshot" class="rounded-lg shadow-md">
         </div>
     </section>
 
-    <section id="certifications" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center">Certifications</h2>
-        <ul class="list-disc list-inside space-y-2 text-lg text-gray-800">
+    <section id="certifications" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Certifications</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 dark:text-gray-200">
             <li>[Certification Name 1] - [Issuing Organization] ([Year])</li>
             <li>[Certification Name 2] - [Issuing Organization] ([Year])</li>
             <li>[Certification Name 3] - [Issuing Organization] ([Year])</li>
             </ul>
     </section>
 
-    <section id="education" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center">Education</h2>
-        <p class="text-lg text-gray-800">
+    <section id="education" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Education</h2>
+        <p class="text-lg text-gray-800 dark:text-gray-200">
             <strong>Universiti Teknologi Malaysia (UTM)</strong><br/>
             Bachelor of Computer Science (Data Engineering)<br/>
             Expected Graduation: June, 2026<br/>
@@ -266,19 +289,55 @@
         </p>
     </section>
 
-    <section id="contact" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center">Contact & Socials</h2>
-        <ul class="space-y-2 text-lg text-gray-800">
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline">Connect on LinkedIn</a></li>
-            <li><strong>Email:</strong> <a href="mailto:your.email@example.com" class="text-yellow-500 hover:underline">your.email@example.com</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline">github.com/yourusername</a></li>
-            <li><strong>Resume:</strong> <a href="[LINK_TO_YOUR_RESUME.pdf]" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline">Download my Resume</a></li>
+    <section id="contact" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Contact & Socials</h2>
+        <ul class="space-y-2 text-lg text-gray-800 dark:text-gray-200">
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline dark:text-yellow-400">Connect on LinkedIn</a></li>
+            <li><strong>Email:</strong> <a href="mailto:your.email@example.com" class="text-yellow-500 hover:underline dark:text-yellow-400">your.email@example.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline dark:text-yellow-400">github.com/yourusername</a></li>
+            <li><strong>Resume:</strong> <a href="[LINK_TO_YOUR_RESUME.pdf]" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline dark:text-yellow-400">Download my Resume</a></li>
         </ul>
     </section>
 
-    <footer class="text-center text-gray-700 py-6 mt-12">
+    <footer class="text-center text-gray-700 py-6 mt-12 dark:text-gray-300">
         <p>&copy; 2025 Nur Arini Fatihah. All rights reserved.</p>
     </footer>
 
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement; // This is the <html> tag
+
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode'; // Change icon and text
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode'; // Change icon and text
+            }
+        }
+
+        // Check for saved theme preference or system preference on load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark'); // Default to system dark mode if no preference saved
+        } else {
+            setTheme('light'); // Default to light mode
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+    </script>
 </body>
 </html>
