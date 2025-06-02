@@ -39,48 +39,10 @@
         /* Ensure project images maintain aspect ratio and have rounded corners */
         .project img {
             width: 100%;
-            max-width: 600px;
+            max-width: 600px; /* Adjusted max-width for better two-column layout */
             border-radius: 0.5rem; /* Equivalent to rounded-lg */
             margin-top: 0.75rem; /* Equivalent to mt-3 */
             object-fit: cover;
-        }
-
-        /* Custom styles for skill level indicator */
-        .skill-level-line {
-            position: relative;
-            height: 6px; /* Thinner line */
-            background-color: #fde68a; /* Light yellow line */
-            border-radius: 9999px; /* Fully rounded */
-            margin-top: 0.5rem; /* Space above the line */
-            margin-bottom: 1.5rem; /* Space below the line for labels */
-        }
-        .dark .skill-level-line {
-            background-color: #4b5563; /* Darker gray line for dark mode */
-        }
-        .skill-indicator {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #f59e0b; /* Amber yellow indicator */
-            border-radius: 9999px; /* Circular */
-            top: 50%;
-            transform: translate(-50%, -50%); /* Center the circle on the line */
-        }
-        .dark .skill-indicator {
-            background-color: #fbbf24; /* Lighter yellow for dark mode */
-        }
-        .skill-labels {
-            position: absolute;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem; /* text-xs */
-            color: #6b7280; /* text-gray-500 */
-            top: 100%; /* Position below the line */
-            margin-top: 0.25rem; /* Small margin from the line */
-        }
-        .dark .skill-labels {
-            color: #9ca3af; /* Lighter gray for dark mode */
         }
     </style>
 </head>
@@ -106,7 +68,7 @@
             <img
                 src="https://raw.githubusercontent.com/arinifthh/arinifthh.github.io/main/img/profile.png"
                 alt="Profile Picture"
-                class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-yellow-200 shadow-lg dark:border-yellow-500"
+                class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-1 border-yellow-200 shadow-lg dark:border-yellow-500"
                 onerror="this.onerror=null;this.src='https://placehold.co/150x150/cccccc/333333?text=Profile+Photo';"
             />
         </div>
@@ -133,144 +95,73 @@
     </section>
 
     <section id="skills" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Skills</h2>
-        <ul class="list-none space-y-6 text-lg text-gray-800 px-4 dark:text-gray-200"> <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">Tableau</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 5/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(50% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">Alteryx</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">Python</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">MySQL</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">SQL</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">R</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 4/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(40% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex justify-between items-center mb-1">
-                    <strong class="text-gray-900 dark:text-gray-100">.NET MVC</strong>
-                    <span class="text-gray-700 dark:text-gray-300">Level 3/10</span>
-                </div>
-                <div class="skill-level-line">
-                    <div class="skill-indicator" style="left: calc(30% - 6px);"></div> <div class="skill-labels">
-                        <span>1</span>
-                        <span>5</span>
-                        <span>10</span>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center dark:text-gray-300">Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-gray-100">Data Analytics</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 dark:text-gray-200">
+                    <li>Tableau</li>
+                    <li>Alteryx</li>
+                    <li>Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+                    <li>SQL</li>
+                    <li>MySQL</li>
+                    <li>R</li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-gray-100">Web Development</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 dark:text-gray-200">
+                    <li>.NET MVC</li>
+                    <li>Python (General Programming)</li>
+                    </ul>
+            </div>
+        </div>
     </section>
 
     <section id="projects" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
-        <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Featured Projects</h2>
+        <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center dark:text-gray-300">Featured Projects</h2>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 1</h3>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Pandas, Matplotlib, SQL, Tableau</p>
-            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Developed a dashboard that reduced reporting time by X%.</p>
-            <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project1-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
-                <a href="https://public.tableau.com/profile/yourusername/project1-dashboard" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
-            </p>
-            <img src="https://placehold.co/800x450/e0e0e0/000000?text=Project+1+Screenshot" alt="Project 1 Screenshot" class="rounded-lg shadow-md">
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="project p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 1</h3>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Pandas, Matplotlib, SQL, Tableau</p>
+                <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Developed a dashboard that reduced reporting time by X%.</p>
+                <p class="flex space-x-4 mb-4">
+                    <a href="https://github.com/yourusername/project1-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
+                    <a href="https://public.tableau.com/profile/yourusername/project1-dashboard" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
+                </p>
+                <img src="https://placehold.co/800x450/e0e0e0/000000?text=Project+1+Screenshot" alt="Project 1 Screenshot" class="rounded-lg shadow-md">
+            </div>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 2</h3>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn</p>
-            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Achieved X% accuracy in a predictive model.</p>
-            <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project2-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
-            </p>
-            <img src="https://placehold.co/800x450/d0d0d0/000000?text=Project+2+Screenshot" alt="Project 2 Screenshot" class="rounded-lg shadow-md">
-        </div>
+            <div class="project p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 2</h3>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> Python, Scikit-learn, Seaborn</p>
+                <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Achieved X% accuracy in a predictive model.</p>
+                <p class="flex space-x-4 mb-4">
+                    <a href="https://github.com/yourusername/project2-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
+                </p>
+                <img src="https://placehold.co/800x450/d0d0d0/000000?text=Project+2+Screenshot" alt="Project 2 Screenshot" class="rounded-lg shadow-md">
+            </div>
 
-        <div class="project mb-8 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 3</h3>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
-            <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> SQL, Power BI</p>
-            <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Automated business report generation.</p>
-            <p class="flex space-x-4 mb-4">
-                <a href="https://github.com/yourusername/project3-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoi...link" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
-            </p>
-            <img src="https://placehold.co/800x450/c0c0c0/000000?text=Project+3+Screenshot" alt="Project 3 Screenshot" class="rounded-lg shadow-md">
+            <div class="project p-4 bg-white rounded-lg shadow-md dark:bg-gray-700 md:col-span-2"> <h3 class="text-2xl font-semibold text-gray-900 mb-2 dark:text-gray-100">Project Title 3</h3>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Description:</strong> A concise, one-sentence summary of the project's goal and outcome.</p>
+                <p class="text-gray-800 mb-2 dark:text-gray-200"><strong>Technologies:</strong> SQL, Power BI</p>
+                <p class="text-gray-800 mb-4 dark:text-gray-200"><strong>Impact:</strong> Automated business report generation.</p>
+                <p class="flex space-x-4 mb-4">
+                    <a href="https://github.com/yourusername/project3-repo" target="_blank" rel="noopener noreferrer" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-600 dark:hover:bg-yellow-700">View Project on GitHub</a>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoi...link" target="_blank" rel="noopener noreferrer" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 dark:bg-yellow-700 dark:hover:bg-yellow-800">Live Dashboard</a>
+                </p>
+                <img src="https://placehold.co/800x450/c0c0c0/000000?text=Project+3+Screenshot" alt="Project 3 Screenshot" class="rounded-lg shadow-md">
+            </div>
         </div>
     </section>
 
     <section id="certifications" class="container mx-auto p-6 my-8 bg-yellow-50 rounded-lg shadow-xl dark:bg-gray-800">
         <h2 class="text-3xl font-bold text-black mb-6 text-center dark:text-white">Certifications</h2>
         <ul class="list-disc list-inside space-y-2 text-lg text-gray-800 dark:text-gray-200">
-            <li>https://www.credly.com/badges/544dc257-05a7-463d-91e2-1b3505a91382/public_url</li>
+            <li><a href="https://www.credly.com/badges/544dc257-05a7-463d-91e2-1b3505a91382/public_url" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:underline dark:text-yellow-400">Microsoft Certified: Azure AI Fundamentals</a></li>
             <li>[Certification Name 2] - [Issuing Organization] ([Year])</li>
             <li>[Certification Name 3] - [Issuing Organization] ([Year])</li>
             </ul>
